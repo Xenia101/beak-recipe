@@ -1,5 +1,6 @@
 from typing import *
 from youtube_api import YouTubeDataAPI
+import config
 
 class MyYoutube:
     def __init__(self, API_KEY: str):
@@ -14,10 +15,10 @@ class MyYoutube:
         return [self.Ayoutube.get_video_metadata(x)['video_description'] for x in Video_id_list]
 
 if __name__ == "__main__":
-    API_KEY: str = ""
-
-    yt: MyYoutube   = MyYoutube(API_KEY)
+    yt: MyYoutube   = MyYoutube(config.API_KEY)
     
     data: List[str] = yt.getDataFrom_yt()
     meta: List[str] = yt.getMetaFrom_vd(data)
+    
+    print(meta)
     
